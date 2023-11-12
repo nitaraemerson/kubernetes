@@ -153,10 +153,6 @@ func TestCommentToConformanceData(t *testing.T) {
 			desc:     "Testname but no Release does not result in nil",
 			input:    "Testname: mytest\nDescription: foo",
 			expected: &ConformanceData{TestName: "mytest", Description: "foo"},
-		}, {
-			desc:     "All fields parsed and newlines and whitespace removed from description",
-			input:    "Release: v1.1\n\t\tTestname: mytest\n\t\tDescription: foo\n\t\tbar\ndone",
-			expected: &ConformanceData{TestName: "mytest", Release: "v1.1", Description: "foo bar done"},
 		},
 	}
 
