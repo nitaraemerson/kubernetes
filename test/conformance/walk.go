@@ -56,7 +56,7 @@ var (
 	baseURL = flag.String("url", "https://github.com/kubernetes/kubernetes/tree/master/", "location of the current source")
 	k8sPath = flag.String("source", "", "location of the current source on the current machine")
 	confDoc = flag.Bool("docs", false, "write a conformance document")
-	version = flag.String("version", "v1.9", "version of this conformance document")
+	version = flag.String("version", "v1.10", "version of ")
 
 	// If a test name contains any of these tags, it is ineligible for promotion to conformance
 	regexIneligibleTags = regexp.MustCompile(`\[(Alpha|Feature:[^\]]+|Flaky)\]`)
@@ -80,9 +80,7 @@ type frame struct {
 func main() {
 	flag.Parse()
 
-	if len(flag.Args()) < 1 {
-		log.Fatalln("Requires the name of the test details file as first and only argument.")
-	}
+
 	testDetailsFile := flag.Args()[0]
 	f, err := os.Open(testDetailsFile)
 	if err != nil {
